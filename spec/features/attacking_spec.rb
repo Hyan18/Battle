@@ -1,5 +1,5 @@
 feature "attacking" do
-  context "has attacked" do
+  context "once" do
 
     before do
       sign_in_and_play
@@ -10,11 +10,11 @@ feature "attacking" do
       expect(page).to have_content("Successful attack!")
     end
 
-    scenario "attack player 2" do
+    scenario "player 1 attacks player 2" do
       expect(page).to have_content("Harrison's HP: 90/#{Player::DEFAULT_HP}")
     end
 
-  context "has attacked again" do
+  context "twice" do
     before do
       click_button 'Attack!'
     end
