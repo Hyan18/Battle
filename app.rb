@@ -16,6 +16,7 @@ class Battle < Sinatra::Base
     end
 
     get '/play' do
+        redirect '/result' if $game.finish != nil
         @player_1_name = $game.player_1.name
         @player_2_name = $game.player_2.name
         @player_1_hp = $game.player_1.hp
@@ -28,6 +29,11 @@ class Battle < Sinatra::Base
         $game.attack
         session[:message] = "Successful attack!"
         redirect '/play'
+    end
+
+    get '/result' do
+        @outcome = $game.finish
+        erb(:result)
     end
 
 
