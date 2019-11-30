@@ -16,4 +16,13 @@ class Game
   def switch_turn
     @player, @other_player = @other_player, @player
   end
+
+  def finish
+    if @player_1.hp == 0
+      "Winner is #{@player_2.name}, Loser is #{@player_1.name}"
+    elsif @player_2.hp == 0
+      "Winner is #{@player_1.name}, Loser is #{@player_2.name}"
+    end
+  end
+  
 end
